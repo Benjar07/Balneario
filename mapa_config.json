@@ -1,0 +1,58 @@
+{
+    "secciones": [
+        {
+            "id": 1,
+            "nombre": "NUEVA SECCIÓN",
+            "x": 0,
+            "y": 90,
+            "ancho": 898,
+            "alto": 247
+        }
+    ],
+    "caminos": [
+        {
+            "id": 1,
+            "nombre": "CAMINO 1",
+            "x": 658,
+            "ancho": 55
+        },
+        {
+            "id": 2,
+            "nombre": "CAMINO 2",
+            "x": 413,
+            "ancho": 55
+        },
+        {
+            "id": 3,
+            "nombre": "CAMINO 3",
+            "x": 166,
+            "ancho": 55
+        }
+    ],
+    "sectores": [
+        {
+            "id": 1,
+            "nombre": "NUEVO SECTOR",
+            "x": 468,
+            "y": 250,
+            "ancho": 90,
+            "alto": 60
+        },
+        {
+            "id": 2,
+            "nombre": "Sector A",
+            "x": 540,
+            "y": 410,
+            "ancho": 90,
+            "alto": 60
+        },
+        {
+            "id": 3,
+            "nombre": "sombrilla 123",
+            "x": 468,
+            "y": 90,
+            "ancho": 90,
+            "alto": 60
+        }
+    ]
+}
