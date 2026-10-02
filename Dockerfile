@@ -1,21 +1,16 @@
-```dockerfile
-FROM php:8.3-apache
+FROM php:8.2-apache
 
-# Extensiones PHP necesarias
-RUN docker-php-ext-install mysqli
+# Desactivar los MPM que sobran y dejar solo prefork
+RUN a2dismod mpm_event mpm_worker || true \
+ && a2enmod mpm_prefork
 
-# Apache
-RUN a2enmod rewrite
+# Extensiones para MySQL (PDO)
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Copiar aplicación
 COPY . /var/www/html/
 
-# Permisos
-RUN chown -R www-data:www-data /var/www/html
+# Railway asigna el puerto por la variable PORT
+RUN sed -i 's/Listen 80/Listen ${PORT}/' /etc/apache2/ports.conf \
+ && sed -i 's/:80/:${PORT}/' /etc/apache2/sites-available/000-default.conf
 
-# Script de inicio
-COPY start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
-
-CMD ["/usr/local/bin/start.sh"]
-```
+EXPOSE 8080
